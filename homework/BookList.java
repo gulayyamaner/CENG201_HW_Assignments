@@ -44,27 +44,24 @@ public class BookList {
             return true;
         }
 
-        // Case: Traverse to find the book
         Node current = head;
         while (current.next != null && current.next.book.id != id) {
             current = current.next;
         }
 
-        // If the book was found
         if (current.next != null) {
             System.out.println("Removed: " + current.next.book.title);
             if (current.next == tail) {
-                tail = current; // Update tail if last element is removed
+                tail = current; 
             }
             current.next = current.next.next;
             size--;
             return true;
         }
 
-        return false; // Book not found
+        return false; 
     }
 
-    // Method to find a book by its ID
     public Book findBook(int id) {
         Node current = head;
         while (current != null) {
@@ -104,6 +101,7 @@ public class BookList {
         library.addBook(new Book(104, "Pride and Prejudice", "Jane Austen"));
         library.addBook(new Book(105, "The Catcher in the Rye", "J.D. Salinger"));
         library.printList();
+        
 
         System.out.println("\nStep 2: Removing book with ID 103...");
         library.removeBook(103);
